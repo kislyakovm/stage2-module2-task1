@@ -21,10 +21,7 @@ public class GetUsersServlet extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/users.jsp");
 
-        try {
-            requestDispatcher.forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        requestDispatcher.forward(request, response);
+
     }
 }

@@ -13,14 +13,12 @@ import java.io.IOException;
 
 @WebServlet("/add")
 public class AddUserServlet extends HttpServlet {
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/add.jsp");
-//        try {
-//            requestDispatcher.forward(request, response);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/add.jsp");
+
+        requestDispatcher.forward(request, response);
+
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstName = request.getParameter("firstName");
@@ -29,12 +27,9 @@ public class AddUserServlet extends HttpServlet {
 
         Warehouse warehouse = Warehouse.getInstance();
         warehouse.addUser(user);
-        request.setAttribute("user", user);
-        try {
-            response.sendRedirect("/add");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        request.setAttribute("user", firstName + " " + lastName);
+
+        response.sendRedirect("/add");
     }
 
 }
