@@ -3,7 +3,6 @@ package com.example.servlet;
 import com.example.User;
 import com.example.Warehouse;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +18,6 @@ public class GetUsersServlet extends HttpServlet {
         Set<User> users = Warehouse.getInstance().getUsers();
         request.setAttribute("users", users);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/users.jsp");
-
-        requestDispatcher.forward(request, response);
-
+        request.getRequestDispatcher("jsp/users.jsp").forward(request, response);
     }
 }
