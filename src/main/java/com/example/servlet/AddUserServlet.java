@@ -13,14 +13,14 @@ import java.io.IOException;
 
 @WebServlet("/add")
 public class AddUserServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/add.jsp");
-        try {
-            requestDispatcher.forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("jsp/add.jsp");
+//        try {
+//            requestDispatcher.forward(request, response);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstName = request.getParameter("firstName");
